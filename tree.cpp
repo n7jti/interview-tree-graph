@@ -79,5 +79,5 @@ CNode* CTree::getRoot()
 
 void CTree::setRoot(CNode* node)
 {
-    _root = nullptr; 
+    _root = node; 
 }

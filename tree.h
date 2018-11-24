@@ -32,7 +32,7 @@ public:
     CTree();
     ~CTree();
     CNode* getRoot();
-    void setRoot(CNode* node);
+    void setRoot(CNode *node);
 private:
-    CNode *_root
+    CNode *_root;
 };
