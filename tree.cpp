@@ -10,7 +10,6 @@ CNode::CNode()
 
 }
 
-
 CNode::~CNode()
 {
     if (nullptr != _left)
@@ -47,7 +46,7 @@ CNode* CNode::getRight()
     return _right; 
 }
 
-void CNode::SetLeft(CNode* pNode)
+void CNode::setLeft(CNode* pNode)
 {
     _left = pNode; 
 }
@@ -55,4 +54,30 @@ void CNode::SetLeft(CNode* pNode)
 void CNode::setRight(CNode* pNode)
 {
     _right = pNode; 
+}
+
+
+CTree::CTree()
+    : _root(nullptr)
+{
+
+}
+
+CTree::~CTree()
+{
+    if(_root != nullptr)
+    {
+        delete _root;
+        _root = nullptr; 
+    }
+}
+
+CNode* CTree::getRoot()
+{
+    return _root;
+}
+
+void CTree::setRoot(CNode* node)
+{
+    _root = nullptr; 
 }

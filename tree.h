@@ -16,11 +16,23 @@ public:
 
     CNode* getLeft();
     CNode* getRight();
-    void SetLeft(CNode* pNode);
+    void setLeft(CNode* pNode);
     void setRight(CNode* pNode);
 
 private:
     int _value;
     CNode* _left;
     CNode* _right;
+};
+
+
+class CTree
+{
+public:
+    CTree();
+    ~CTree();
+    CNode* getRoot();
+    void setRoot(CNode* node);
+private:
+    CNode *_root
 };

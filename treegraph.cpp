@@ -6,15 +6,61 @@
 #include "CppUTest/CommandLineTestRunner.h"
 #include "CppUTest/TestHarness.h"
 
-TEST_GROUP(Unit)
+TEST_GROUP(UnitNode)
 {
 
 };
 
-TEST(Unit, Test1)
+TEST(UnitNode, valueGetSet)
 {
-    CHECK_TRUE(true);
+    CNode myNode;
+
+    for(int i = -100; i < 100; ++i)
+    {
+        myNode.setValue(i);
+        CHECK_EQUAL(i,myNode.getValue());
+    }
 }
+
+TEST(UnitNode, leftGetSet)
+{
+    CNode array[100];
+    CNode myNode; 
+    for(int i= 0; i < 100; ++i)
+    {
+        myNode.setLeft(&(array[i]));
+        CHECK_EQUAL(&(array[i]), myNode.getLeft());
+    }
+    myNode.setLeft(nullptr);
+}
+
+TEST(UnitNode, rightGetSet)
+{
+    CNode array[100];
+    CNode myNode; 
+    for(int i= 0; i < 100; ++i)
+    {
+        myNode.setRight(&(array[i]));
+        CHECK_EQUAL(&(array[i]), myNode.getRight());
+    }
+    myNode.setRight(nullptr);
+}
+
+TEST_GROUP(UnitTree)
+{
+
+};
+
+TEST(UnitTree, rootGetSet)
+{
+    CNode myNode; 
+    CTree myTree;
+    myTree.setRoot(&myNode);
+    CHECK_EQUAL(&myNode, myTree.getRoot());
+    myTree.setRoot(nullptr);
+}
+
+
 
 int main (int argc, char *argv[])
 {
