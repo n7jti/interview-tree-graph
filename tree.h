@@ -4,6 +4,23 @@
 // At some point I'll get stuck and look up the answers and learn.  I've got a copy
 // of Sedgewick around here someplace.  I should go find it. 
 
+
+//forware Declaration
+class CNode;
+
+
+class CNodeVisitor
+{
+public:
+    virtual void visit(CNode* node) = 0;
+};
+
+class OutputNodeVisitor : public CNodeVisitor
+{
+public:
+    virtual void visit(CNode* node) override;
+};
+
 class CNode
 {
 public: 
@@ -16,8 +33,12 @@ public:
 
     CNode* getLeft();
     CNode* getRight();
-    void setLeft(CNode* pNode);
-    void setRight(CNode* pNode);
+    void setLeft(CNode *pNode);
+    void setRight(CNode *pNode);
+
+    void insert(CNode *pNode);
+
+    void accept(CNodeVisitor *pVisitor);
 
 private:
     int _value;
@@ -33,6 +54,8 @@ public:
     ~CTree();
     CNode* getRoot();
     void setRoot(CNode *node);
+    void insert(CNode *node);
 private:
     CNode *_root;
 };
+
